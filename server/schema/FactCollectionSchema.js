@@ -13,7 +13,7 @@ const FactCollectionSchema=new mongoose.Schema({
 
     category:{
         type:String,
-        required:true
+        // required:true
     },
     
     votesIntresting:{
