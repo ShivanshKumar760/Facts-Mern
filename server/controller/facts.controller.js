@@ -45,3 +45,17 @@ export const getFactByCategory=async(req,res)=>{
         res.status(404).json({message:error.message});
     }
 };
+
+
+export const updateFact=async(req,res)=>{
+    try{
+        const {voteType}=req.body;
+        const {id}=req.params;
+        const update=await Facts.findByIdAndUpdate(id,{$inc:{[voteType]:1}},{new:true});
+        console.log(update);
+        res.json({updateRecord:update});
+    }
+    catch(error){
+        console.log(error);
+    }
+}
