@@ -1,5 +1,6 @@
 import MainSection from "./subcomponents/MainSection"
 import Sidebar from "./subcomponents/Sidebar"
+import PropTypes from 'prop-types';
 
 const Main = ({facts,setFacts,setFetchTrigger}) => {
   return (
@@ -9,5 +10,10 @@ const Main = ({facts,setFacts,setFetchTrigger}) => {
     </main>
   )
 }
+Main.propTypes = {
+  facts: PropTypes.array.isRequired,
+  setFacts: PropTypes.func.isRequired,
+  setFetchTrigger: PropTypes.func.isRequired,
+};
 
-export default Main
+export default Main;
