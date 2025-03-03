@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const Main = ({facts,setFacts,setFetchTrigger}) => {
   return (
     <main className="">
-        <Sidebar/>
+        <Sidebar facts={facts} setFacts={setFacts}/>
         <MainSection facts={facts} setFacts={setFacts} setFetchTrigger={setFetchTrigger}/>
     </main>
   )

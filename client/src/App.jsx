@@ -23,7 +23,7 @@ function App() {
       <div className="center-container">
           <Header/>
           <Form setFacts={setFacts} setFetchTrigger={setFetchTrigger}/>
-          <Main facts={facts} setFacts={setFacts} setFetchTrigger={setFetchTrigger}/>
+          <Main facts={facts} setFacts={setFacts} fetchTrigger={fetchTrigger} setFetchTrigger={setFetchTrigger}/>
       </div>
     </>
   )

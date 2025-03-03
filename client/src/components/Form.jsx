@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-const Form = (setFacts,setFetchTrigger) => {
+const Form = ({setFacts,fetchTrigger,setFetchTrigger}) => {
 const [newFact,setNewFact]=useState("");
 const [source,setSource]=useState("");
 const [cat,setCat]=useState("");
@@ -14,7 +14,7 @@ const handleSubmition=async (e)=>{
         console.log(response);
         if(response){
             // setFacts((prev)=>[...prev,response.data])
-            setFetchTrigger((prev)=>prev+1)
+            setFetchTrigger(fetchTrigger+1)
             alert("Facts added")
         }
     }catch(error){
@@ -37,11 +37,11 @@ return (
         }/>
         <select onChange={(e)=>{setCat(e.target.value)}}>
             <option value="">Choose category</option>
-            <option value="technology">Technology</option>
-            <option value="science">Science</option>
-            <option value="finance">Finance</option>
-            <option value="finance">Health</option>
-            <option value="finance">Society</option>
+            <option value="Technology">Technology</option>
+            <option value="Science">Science</option>
+            <option value="Finance">Finance</option>
+            <option value="Health">Health</option>
+            <option value="Society">Society</option>
         </select>
         <button className="btn btn-large">Post</button>
     </form>
