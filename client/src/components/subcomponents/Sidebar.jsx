@@ -1,4 +1,4 @@
-
+/*eslint-disable*/
 import axios from "axios";
 const Sidebar = ({setFacts}) => {
   const categories=[
@@ -33,7 +33,9 @@ const Sidebar = ({setFacts}) => {
 
     const fetchAll=async ()=>{
       const response = await axios.get("http://localhost:4000/api/facts")
-      // console.log(response);
+      console.log("Response is comming...");
+      console.log(response);
+      console.log(response.data);
       setFacts(response.data)
     }
   return (
