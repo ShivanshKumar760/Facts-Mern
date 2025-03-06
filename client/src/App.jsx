@@ -10,13 +10,22 @@ function App() {
   const getFacts=async ()=>{
     const response = await axios.get(import.meta.env.VITE_BACKEND_API+"/api/facts")
     // console.log(response);
-    setFacts(response.data)
+    if(Array.isArray(response.data)){
+      // console.log("Under")
+      // console.log(response.data);
+      setFacts(response.data)
+    }
+    else{
+      setFacts([])
+    }
+    
   }
   //call the functiion first time the screen loads
   useEffect(()=>{
     getFacts();
  
   },[fetchTrigger]);
+
   console.log(facts);
   return (
     <>

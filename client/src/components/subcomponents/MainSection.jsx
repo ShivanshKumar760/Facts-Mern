@@ -21,7 +21,7 @@ const MainSection = ({facts,setFacts,setFetchTrigger}) => {
   return (
     <section>
     <ul>
-        {facts.map((fact,index)=>{
+        {facts?.map((fact,index)=>{
             return (
                 <li className="facts" key={index}>
                 <p>{fact.fact}<a className="source" href={fact.source} target="_blank">(Source)</a></p>
