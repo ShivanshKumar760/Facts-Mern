@@ -1,4 +1,4 @@
-
+/*eslint-disable*/
 import { useState } from "react";
 import axios from "axios";
 const Form = ({setFacts,fetchTrigger,setFetchTrigger}) => {

@@ -8,7 +8,7 @@ function App() {
   const [fetchTrigger, setFetchTrigger] = useState(0); // ✅ Add a trigger state
 
   const getFacts=async ()=>{
-    const response = await axios.get("http://localhost:4000/api/facts")
+    const response = await axios.get(import.meta.env.VITE_BACKEND_API+"/api/facts")
     // console.log(response);
     setFacts(response.data)
   }
