@@ -2,11 +2,18 @@
 import { useState } from "react";
 import axios from "axios";
 const Form = ({setFacts,fetchTrigger,setFetchTrigger}) => {
+const [wordLimit,setWordLimt]=useState(200);
+const [wordCount, setWordCount] = useState(0);
+const [charCount, setCharCount] = useState(0);
 const [newFact,setNewFact]=useState("");
 const [source,setSource]=useState("");
 const [cat,setCat]=useState("");
 const handleSubmition=async (e)=>{
     e.preventDefault();
+    if(!source.startsWith("https")){
+        alert("Not Valid Source ");
+        return;
+    }
     try{
         const response=await axios.post(import.meta.env.VITE_BACKEND_API+"/api/facts/create",{
             fact:newFact,source:source,category:cat
@@ -28,12 +35,28 @@ return (
     <form className="fact-form" onSubmit={(e) => handleSubmition(e)}>
         <input  type="text" placeholder="share a fact with the world" value={newFact} onChange={
             (e)=>{
-                setNewFact(e.target.value);
+                const value=e.target.value;
+                 // Split text into words
+                // const words = value.trim().split(/\s+/).filter(word => word.length > 0);
+                if(value.length<=wordLimit)
+                {
+                    setNewFact(value);
+                    setCharCount(value.length);
+                }else {
+                    // If user exceeds limit, allow only up to wordLimit words
+                    // const trimmedValue = words.slice(0, wordLimit).join(' ');
+                    setNewFact(value.slice(0,wordLimit));
+                    setCharCount(wordLimit);
+                }
+                
             }
         }/>
-        <span>200</span>
+        <span>Word count: {charCount}/{wordLimit}</span>
         <input type="text" placeholder="Trustworthy source..." value={source} onChange={
-            (e)=>{setSource(e.target.value)}
+            (e)=>{
+                const value=e.target.value;
+                setSource(value);
+            }
         }/>
         <select onChange={(e)=>{setCat(e.target.value)}}>
             <option value="">Choose category</option>
