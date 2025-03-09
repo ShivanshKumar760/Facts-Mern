@@ -11,7 +11,7 @@ const [cat,setCat]=useState("");
 const handleSubmition=async (e)=>{
     e.preventDefault();
     if(!source.startsWith("https")){
-        alert("Not Valid Source ");
+        alert("Not Valid Source ,Link should start with https ex-https:://example.com");
         return;
     }
     try{
