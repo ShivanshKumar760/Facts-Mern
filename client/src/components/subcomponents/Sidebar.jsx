@@ -32,7 +32,7 @@ const Sidebar = ({setFacts}) => {
 
 
     const fetchAll=async ()=>{
-      const response = await axios.get("http://localhost:4000/api/facts")
+      const response = await axios.get(import.meta.env.VITE_BACKEND_API+"/api/facts")
       console.log("Response is comming...");
       console.log(response);
       console.log(response.data);
