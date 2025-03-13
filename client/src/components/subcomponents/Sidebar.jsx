@@ -20,7 +20,7 @@ const Sidebar = ({setFacts}) => {
         {
           if(response.data.message==="No facts found")
           {
-            alert("No fact found");
+            alert("No fact found for this category");
             return;
           }
         }
